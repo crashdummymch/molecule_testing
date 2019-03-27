@@ -1,0 +1,17 @@
+---
+- name: Prepare
+  hosts: all 
+  gather_facts: true
+  no_log: "{{ not lookup('env', 'MOLECULE_DEBUG') | bool }}"
+
+  pre_tasks:
+    - name: corrupt rpm database
+      command: rm -f /var/lib/rpm/__db*
+      become: true
+      when: ansible_facts['os_family'] == "RedHat"
+
+    - name: check for corruptions
+      command: rpm -q rpm 
+      ignore_errors: true
+      when: ansible_facts['os_family'] == "RedHat"
+  tasks: []
