@@ -1,0 +1,40 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint:
+  name: yamllint
+platforms:
+  - name: instance
+    image: centos:7
+    env:
+      http_proxy: ${http_proxy}
+      https_proxy: ${https_proxy}
+provisioner:
+  name: ansible
+  options:
+    tags: "precheck"
+  lint:
+    name: ansible-lint
+    options:
+      x: ["ANSIBLE0010"]
+  playbooks:
+    prepare: prepare.yml
+scenario:
+  name: rpmrebuilddb-centos
+  test_sequence:
+    - lint
+    - destroy
+    - dependency
+    - syntax
+    - create
+    - prepare
+    - converge
+    - side_effect
+    - verify
+    - destroy
+verifier:
+  name: testinfra
+  lint:
+    name: flake8
