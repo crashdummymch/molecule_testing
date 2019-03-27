@@ -1,0 +1,22 @@
+    PLAYBOOK: prepare.yml **********************************************************
+    1 plays in /home/de602504/Documents/code/ge/cloud/patching_linux-ansible_role/molecule/rpmrebuilddb-centos/prepare.yml
+    
+    PLAY [Prepare] *****************************************************************
+    
+    TASK [Gathering Facts] *********************************************************
+    task path: /home/de602504/Documents/code/ge/cloud/patching_linux-ansible_role/molecule/rpmrebuilddb-centos/prepare.yml:2
+    <instance> ESTABLISH DOCKER CONNECTION FOR USER: root
+    <instance> EXEC ['/usr/bin/docker', 'exec', '-i', u'instance', u'/bin/sh', '-c', u"/bin/sh -c 'echo ~ && sleep 0'"]
+    <instance> EXEC ['/usr/bin/docker', 'exec', '-i', u'instance', u'/bin/sh', '-c', u'/bin/sh -c \'( umask 77 && mkdir -p "` echo /root/.ansible/tmp/ansible-tmp-1553704716.41-256253160004760 `" && echo ansible-tmp-1553704716.41-256253160004760="` echo /root/.ansible/tmp/ansible-tmp-1553704716.41-256253160004760 `" ) && sleep 0\'']
+    Using module file /home/de602504/.local/lib/python2.7/site-packages/ansible/modules/system/setup.py
+    <instance> PUT /home/de602504/.ansible/tmp/ansible-local-1787jhOPVD/tmpAyN7lk TO /root/.ansible/tmp/ansible-tmp-1553704716.41-256253160004760/AnsiballZ_setup.py
+    <instance> EXEC ['/usr/bin/docker', 'exec', '-i', u'instance', u'/bin/sh', '-c', u"/bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1553704716.41-256253160004760/ /root/.ansible/tmp/ansible-tmp-1553704716.41-256253160004760/AnsiballZ_setup.py && sleep 0'"]
+    <instance> EXEC ['/usr/bin/docker', 'exec', '-i', u'instance', u'/bin/sh', '-c', u"/bin/sh -c '/usr/bin/python /root/.ansible/tmp/ansible-tmp-1553704716.41-256253160004760/AnsiballZ_setup.py && sleep 0'"]
+    <instance> EXEC ['/usr/bin/docker', 'exec', '-i', u'instance', u'/bin/sh', '-c', u"/bin/sh -c 'rm -f -r /root/.ansible/tmp/ansible-tmp-1553704716.41-256253160004760/ > /dev/null 2>&1 && sleep 0'"]
+    ok: [instance]
+    META: ran handlers
+    META: ran handlers
+    META: ran handlers
+    
+    PLAY RECAP *********************************************************************
+    instance                   : ok=1    changed=0    unreachable=0    failed=0
